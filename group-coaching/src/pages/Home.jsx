@@ -5,19 +5,19 @@ import { users } from "../data/users";
 import { useUserContext } from "../context/UserContext";
 
 export default function Home() {
-  const [currentUser, setCurrentUser] = useState(users)
-  
-    return (
-      <div className="Home">
-        Dashboard Page
+  const [currentUser, setCurrentUser] = useState("");
+  console.log(currentUser)
+
+  return (
+    <div className="Home">
+      Welcome {currentUser.name}
       <ul>
-        <Leaderboard users={currentUser}/>
-        <li>Welcome {currentUser.name}</li>
-        <Exercises users={currentUser} setUsers={setCurrentUser}/>
+        <Leaderboard users={users} />
+
+        <Exercises users={currentUser} setUsers={setCurrentUser} />
         <li>Motivational Quote</li>
         <li>Video</li>
       </ul>
-      </div>
-    );
-  }
-  
+    </div>
+  );
+}
