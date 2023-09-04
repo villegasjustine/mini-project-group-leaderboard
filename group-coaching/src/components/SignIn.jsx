@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from 'react';
 import { users } from '../data/users';
 import { useNavigate } from 'react-router-dom';
+import { useUserContext } from "../context/UserContext";
 
 
 function Copyright(props) {
@@ -40,7 +41,7 @@ export default function SignIn() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
-
+  const {currentUser, handleUpdateUser} = useUserContext();
 
 
   const handleLogin = (e) => {
@@ -53,6 +54,7 @@ export default function SignIn() {
       if (password === 'password') {
         // Successfully logged in
         setErrorMessage('');
+        handleUpdateUser({name: user.name})
         alert(`Welcome, ${user.name}! You are logged in as a ${user.type}.`);
         // make user go to homepage
         navigate('/home')
@@ -94,6 +96,8 @@ export default function SignIn() {
           id="username"
           label="Username"
           name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
           autoComplete="username"
           autoFocus
         />
@@ -104,7 +108,9 @@ export default function SignIn() {
           name="password"
           label="Password"
           type="password"
+          value={password}
           id="password"
+          onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
         <FormControlLabel
