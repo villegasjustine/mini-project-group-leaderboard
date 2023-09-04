@@ -18,16 +18,19 @@ export default function Exercises(props) {
   const [footworkExercise, setFootworkExercise] = useState("");
   const [racketExercise, setRacketExercise] = useState("");
   const [strengthExercise, setStrengthExercise] = useState("");
-  const [onClickCount, setOnClickCount] = useState(0);
   
-  const {currentUser, handleUpdateUser} = useUserContext(); 
+  
+  const {currentUser} = useUserContext(); 
   const users = props.users;
   const setUsers = props.setUsers;
 
-    function userCheck (name) {
+    function handlePoints(name) {
         let foundUser = users.find((user) => user.name == name);
         foundUser.points += 100;
-        setUsers(users);
+        
+        let updatedUsers = [...users]
+        setUsers(updatedUsers);
+
     }
 
   useEffect(() => {
@@ -41,17 +44,17 @@ export default function Exercises(props) {
       <h2>Exercises To Do</h2>
       <div>
         <Button variant="contained" 
-        onClick={() => userCheck(currentUser.name)}>
+        onClick={() => handlePoints(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
             Footwork: {footworkExercise}
           </Box>
         </Button>
-        <Button onClick={() => userCheck(currentUser.name)}>
+        <Button onClick={() => handlePoints(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
         Racket: {racketExercise}
           </Box>
         </Button>
-        <Button variant = "contained">
+        <Button variant = "contained" onClick={() => handlePoints(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
             Strength: {strengthExercise}
           </Box>
