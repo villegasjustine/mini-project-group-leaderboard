@@ -12,9 +12,10 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
+import { useState } from 'react';
 import { users } from '../data/users';
-import { useUserContext } from "../context/UserContext";
+import { useNavigate } from 'react-router-dom';
+
 
 function Copyright(props) {
   return (
@@ -37,13 +38,12 @@ function Copyright(props) {
 export default function SignIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [submitResult, setSubmitResult] = useState("");
-  const [loginAttempts, setLoginAttempts] = useState(0);
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
-  const {currentUser, handleUpdateUser} = useUserContext();
 
-  const handleSubmit = (e) => {
+
+  const handleLogin = (e) => {
     e.preventDefault();
 
     // Find the user with the entered username
@@ -51,10 +51,11 @@ export default function SignIn() {
 
     if (user) {
       if (password === 'password') {
-        // successfully logged in
+        // Successfully logged in
         setErrorMessage('');
         alert(`Welcome, ${user.name}! You are logged in as a ${user.type}.`);
-        <NavLink to="/home">Home</NavLink>
+        // make user go to homepage
+        navigate('/home')
       } else {
         setErrorMessage('Incorrect password');
       }
@@ -63,18 +64,8 @@ export default function SignIn() {
     }
   };
 
-  if (currentUser.name)
   return (
-    <>
-      <p>Welcome {currentUser.email}!</p>
-      <button onClick={() => handleUpdateUser({})}>Log Out</button>
-    </>
-  );
-else if (loginAttempts >= 5) return <p>Login attempts exceeded</p>;
-
-return (
-  
-  <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs">
     <CssBaseline />
     <Box
       sx={{
@@ -92,7 +83,7 @@ return (
       </Typography>
       <Box
         component="form"
-        onSubmit={handleSubmit}
+        onSubmit={handleLogin}
         noValidate
         sx={{ mt: 1 }}
       >
@@ -100,10 +91,10 @@ return (
           margin="normal"
           required
           fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
+          id="username"
+          label="Username"
+          name="username"
+          autoComplete="username"
           autoFocus
         />
         <TextField
@@ -128,13 +119,14 @@ return (
         >
           Sign In
         </Button>
+    
         <Grid container>
           <Grid item xs>
             <Link href="#" variant="body2">
               Forgot password?
             </Link>
           </Grid>
-          <Grid item>
+          <Grid item> 
             <Link href="#" variant="body2">
               {"Don't have an account? Sign Up"}
             </Link>
@@ -144,8 +136,7 @@ return (
     </Box>
     <Copyright sx={{ mt: 8, mb: 4 }} />
   </Container>
-
-);
+  );
 }
 
 

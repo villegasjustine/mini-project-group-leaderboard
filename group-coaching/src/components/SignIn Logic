@@ -1,0 +1,13 @@
+  if (user) {
+      if (password === 'password') {
+        // successfully logged in
+        setErrorMessage('');
+        alert(`Welcome, ${user.name}! You are logged in as a ${user.type}.`);
+        <NavLink to="/home">Home</NavLink>
+      } else {
+        setErrorMessage('Incorrect password');
+      }
+    } else {
+      setErrorMessage('User not found');
+    }
+  };
