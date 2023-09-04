@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { users } from '../data/users';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from "../context/UserContext";
+import Exercises from "./ExerciseBox";
 
 
 function Copyright(props) {
@@ -57,7 +58,7 @@ export default function SignIn() {
         handleUpdateUser({name: user.name})
         alert(`Welcome, ${user.name}! You are logged in as a ${user.type}.`);
         // make user go to homepage
-        // navigate('/home')
+        navigate('/home')
       } else {
         setErrorMessage('Incorrect password');
       }
@@ -66,8 +67,8 @@ export default function SignIn() {
     }
   };
 
-  if (currentUser.username) return (
-    <p>Welcome {currentUser.username}</p>
+  if (currentUser.name) return (
+    <p>Welcome {currentUser.name}</p>
   )
   return (
     <Container component="main" maxWidth="xs">

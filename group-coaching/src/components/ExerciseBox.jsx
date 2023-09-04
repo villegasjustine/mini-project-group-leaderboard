@@ -18,33 +18,35 @@ export default function Exercises(props) {
   const [footworkExercise, setFootworkExercise] = useState("");
   const [racketExercise, setRacketExercise] = useState("");
   const [strengthExercise, setStrengthExercise] = useState("");
+  const [onClickCount, setOnClickCount] = useState(0);
   
   const {currentUser, handleUpdateUser} = useUserContext(); 
   const users = props.users;
   const setUsers = props.setUsers;
 
     function userCheck (name) {
-        console.log(currentUser.name)
         let foundUser = users.find((user) => user.name == name);
         foundUser.points += 100;
-        setUsers();
+        setUsers(users);
     }
+
   useEffect(() => {
     setFootworkExercise(getRandomExercise("footwork"));
     setRacketExercise(getRandomExercise("racket"));
     setStrengthExercise(getRandomExercise("strength"));
-  }, []);
+  }, [users]);
 
   return (
     <div>
       <h2>Exercises To Do</h2>
-      <ul>
-        <Button variant="contained" onClick={() => userCheck(currentUser.name)}>
+      <div>
+        <Button variant="contained" 
+        onClick={() => userCheck(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
             Footwork: {footworkExercise}
           </Box>
         </Button>
-        <Button>
+        <Button onClick={() => userCheck(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
         Racket: {racketExercise}
           </Box>
@@ -54,7 +56,7 @@ export default function Exercises(props) {
             Strength: {strengthExercise}
           </Box>
         </Button>
-      </ul>
+        </div>
     </div>
   );
 }
