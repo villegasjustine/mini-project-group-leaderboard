@@ -78,7 +78,7 @@ export default function AssignExercise(props) {
             MenuProps={MenuProps}
           >
             {footworkSelect.map((f) => (
-              <MenuItem color="black" key={f.id} value={f.name} style={{ color: "black" }}></MenuItem>
+              <MenuItem color="white" key={f.id} value={f.name} style={{ color: "black" }}></MenuItem>
             ))}
           </Select>
         </FormControl>

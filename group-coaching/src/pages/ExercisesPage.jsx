@@ -5,6 +5,7 @@ import { users } from "../data/users";
 import AssignExercise from "../components/AssignExercise";
 import AssignExerciseTest from "../components/AssignExerciseTest";
 import Exercises from "../components/Exercises";
+import ExerciseDisplay from "../components/ExerciseDisplay";
 
 
 

@@ -4,14 +4,15 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useUserContext } from "../context/UserContext";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import { useExerciseContext } from "../context/ExerciseContext";
 
-const getRandomExercise = (category) => {
-  const exercisesInCategory = exercises.filter(
-    (exercise) => exercise.category === category
-  );
-  const randomIndex = Math.floor(Math.random() * exercisesInCategory.length);
-  return exercisesInCategory[randomIndex]?.name || "No exercise available";
-};
+// const getRandomExercise = (category) => {
+//   const exercisesInCategory = exercises.filter(
+//     (exercise) => exercise.category === category
+//   );
+//   const randomIndex = Math.floor(Math.random() * exercisesInCategory.length);
+//   return exercisesInCategory[randomIndex]?.name || "No exercise available";
+// };
 
 export default function Exercises(props) {
   // const [footworkExercise, setFootworkExercise] = useState("Wait to be assigned");
@@ -24,12 +25,13 @@ export default function Exercises(props) {
 
   function handlePoints(name) {
     let foundUser = users.find((user) => user.name == name);
-    foundUser.points += 100;
+    foundUser.points += 10;
 
     let updatedUsers = [...users];
     setUsers(updatedUsers);
   }
 
+    const {currentExercise} = useExerciseContext();  
   // useEffect(() => {
   //   setFootworkExercise(getRandomExercise("footwork"));
   //   setRacketExercise(getRandomExercise("racket"));
@@ -57,11 +59,11 @@ export default function Exercises(props) {
               sx={{ p: 5 }}
               onClick={() => handlePoints(currentUser.name)}
             >
-              Footwork: {props.footwork}
+              Footwork: {props.footwork ? props.footwork : "To be assigned" }
             </Button>
             <Button onClick={() => handlePoints(currentUser.name)}>
               <Box component="span" sx={{ p: 5 }}>
-                Racket: {props.racket}
+                Racket: {props.racket ? props.racket : 'To be assigned'}
               </Box>
             </Button>
             <Button
@@ -69,7 +71,7 @@ export default function Exercises(props) {
               onClick={() => handlePoints(currentUser.name)}
             >
               <Box component="span" sx={{ p: 5 }}>
-                Strength: {props.strength}
+                Strength: {props.strength ? props.strength : 'To be assigned'}
               </Box>
             </Button>
           </ButtonGroup>

@@ -8,6 +8,7 @@ import Quote from "../components/Quote";
 import GetQuote from "../components/GetQuote";
 import ExerciseDisplay from "../components/ExerciseDisplay";
 import ButtonGroup from "../components/VerticalButtons";
+import { Typography } from "@mui/material";
 
 
 export default function Home() {
@@ -22,8 +23,9 @@ export default function Home() {
 
   return (
     <div className="Home">
+     <Typography variant="h1" >
       Welcome {currentUser.name}
-      <Quote></Quote>
+      </Typography>
      <GetQuote/>
       <ul>
         
@@ -31,7 +33,7 @@ export default function Home() {
 
         <ExerciseDisplay users={user} setUsers={updateUsers} />
         
-        <li>Video</li>
+        {/* <li>Video</li> */}
       </ul>
     </div>
   );

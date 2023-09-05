@@ -5,23 +5,7 @@ export default function AssignExerciseTest() {
   const [footworkExercise, setFootworkExercise] = useState("");
   const [racketExercise, setRacketExercise] = useState("");
   const [strengthExercise, setStrengthExercise] = useState("");
-  const [difficulty, setDifficulty] = useState("easy");
-  const [program, setProgram] = useState([]);
-  
-  const footworkSelect = exercises.filter(
-    (exercise) => exercise.category === "footwork"
-  );
-  console.log(footworkSelect);
-
-  const racketSelect = exercises.filter(
-    (exercise) => exercise.category === "racket"
-  );
-  console.log(racketSelect);
-
-  const strengthSelect = exercises.filter(
-    (exercise) => exercise.category === "strength"
-  );
-  console.log(strengthSelect);
+ 
 
   const handleAddExercise = () => {
     // Create a new exercise object based on selected values
@@ -29,13 +13,10 @@ export default function AssignExerciseTest() {
       footwork: footworkExercise,
       racket: racketExercise,
       strength: strengthExercise,
-      difficulty: difficulty,
+      
     };
 
-    // Add the new exercise to the program
-    setProgram([...program, newExercise]);
-
-    // Reset the selected exercises
+    
     setFootworkExercise("");
     setRacketExercise("");
     setStrengthExercise("");
