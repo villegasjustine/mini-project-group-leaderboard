@@ -8,22 +8,27 @@ import { UserProvider } from "./context/UserContext";
 import { ExerciseProvider } from "./context/ExerciseContext";
 import NavBarMUI from "./components/NavBarMUI";
 import JoMUI from "./components/JoMUI";
+import SignoutButton from "./components/SignOutButton";
+import { ThemeProvider } from "@mui/material/styles";
+import { orangeTheme } from "./themes/orangeTheme";
+
+
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <UserProvider>
-        <ExerciseProvider>
-        Group Coaching
+     <ThemeProvider theme={orangeTheme}>
+        <UserProvider>
+          <ExerciseProvider>
 
-        <JoMUI/>
-        <NavBar />
-        <AppRoutes />
+            <JoMUI />
+            <AppRoutes />
 
-        </ExerciseProvider>
-      </UserProvider>
+          </ExerciseProvider>
+        </UserProvider>
+        </ThemeProvider>
     </>
   );
 }

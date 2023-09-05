@@ -16,7 +16,7 @@ import { NavLink } from 'react-router-dom';
 
 const pages = [{link: '/home', label: 'Home'}, {link: '/exercises', label: 'Exercises'}, 
     ];
-    const settings = [{link: '/account', label: 'Account'}, {link: '/', label: 'Sign Out'}];
+    const settings = [{link: '/home', label: 'Account'}, {link: '/', label: 'Sign Out'}];
 
 // see https://mui.com/material-ui/react-app-bar/
 function JoMUI() {
@@ -60,7 +60,7 @@ function JoMUI() {
               textDecoration: 'none',
             }}
           >
-           Group Exercise
+           Group Coach
           </Typography>
 
           {/* mobile menu items in a flexbox */}

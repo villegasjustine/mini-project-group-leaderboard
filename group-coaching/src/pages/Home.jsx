@@ -1,4 +1,4 @@
-import Exercises from "../components/ExerciseBox";
+import Exercises from "../components/Exercises";
 import Leaderboard from "../components/Leaderboard";
 import { useState } from "react";
 import { useUserContext } from "../context/UserContext";
@@ -6,6 +6,10 @@ import { users } from "../data/users";
 import BasicCard from "../components/BasicCard";
 import Quote from "../components/Quote";
 import GetQuote from "../components/GetQuote";
+import ExerciseDisplay from "../components/ExerciseDisplay";
+import ButtonGroup from "../components/VerticalButtons";
+import VerticalButtons from "../components/VerticalButtons";
+import KanbanCardDemo from "../components/KanbanCardDemo";
 
 export default function Home() {
   const [user, setUser] = useState(users);
@@ -13,7 +17,6 @@ export default function Home() {
 
   function updateUsers(newUsers) {
     setUser(newUsers)
-    console.log("updated users")
     console.log(user)
     
   }
@@ -24,9 +27,11 @@ export default function Home() {
       <Quote></Quote>
      <GetQuote/>
       <ul>
+        <KanbanCardDemo/>
         <Leaderboard users={user} />
 
-        <Exercises users={user} setUsers={updateUsers} />
+        <ExerciseDisplay users={user} setUsers={updateUsers} />
+        
         <li>Video</li>
       </ul>
     </div>

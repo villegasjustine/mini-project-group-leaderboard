@@ -1,10 +1,10 @@
 import { useState } from "react";
-import ExerciseBox from "../components/ExerciseBox";
+import ExerciseBox from "../components/Exercises";
 import { useUserContext } from "../context/UserContext";
 import { users } from "../data/users";
 import AssignExercise from "../components/AssignExercise";
 import AssignExerciseTest from "../components/AssignExerciseTest";
-import Exercises from "../components/ExerciseBox";
+import Exercises from "../components/Exercises";
 
 
 
@@ -17,9 +17,10 @@ export default function ExercisesPage() {
 
   return (
     <div className="ExercisesPage">
+      <br></br>
       Exercises for {currentUser.name}
       <br></br>
-      Show exercises assigned for user
+      {/* Show exercises assigned for user */}
       
       <AssignExercise 
         footwork={footwork} setFootwork={setFootwork}
@@ -30,7 +31,8 @@ export default function ExercisesPage() {
         footwork={footwork}
         racket={racket}
         strength={strength}/>
-      
+
+    
     </div>
   );
 }
