@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Groups2Icon from '@mui/icons-material/Groups2';
 import { NavLink } from 'react-router-dom';
 
-const pages = [{link: '/home', label: 'Home'}, {link: '/exercises', label: 'Exercises'}, 
+const pages = [{link: '/home', label: 'Home'}, {link: '/exercises', label: 'Exercises'},{link: '/paint', label: 'Paint'} 
     ];
     const settings = [{link: '/home', label: 'Account'}, {link: '/', label: 'Sign Out'}];
 
@@ -114,7 +114,7 @@ function JoMUI() {
               textDecoration: 'none',
             }}
           >
-            Group Exercise
+            Group Coach
           </Typography>
 
           {/* desktop menu items are here, grouped into a flex box */}
@@ -128,7 +128,7 @@ function JoMUI() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="" src="" />
               </IconButton>
             </Tooltip>
             <Menu

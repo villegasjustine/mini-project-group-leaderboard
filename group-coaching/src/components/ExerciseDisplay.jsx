@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useUserContext } from "../context/UserContext";
 import { ButtonGroup } from "@mui/material";
+import { useExerciseContext } from "../context/ExerciseContext";
 
 const getRandomExercise = (category) => {
   const exercisesInCategory = exercises.filter(
@@ -24,6 +25,9 @@ export default function ExerciseDisplay(props) {
   const {currentUser} = useUserContext(); 
   const users = props.users;
   const setUsers = props.setUsers;
+  const {currentExercise} = useExerciseContext();
+  const exercises = props.exercises
+  console.log(currentExercise)
 
     function handlePoints(name) {
         let foundUser = users.find((user) => user.name == name);
@@ -34,11 +38,11 @@ export default function ExerciseDisplay(props) {
 
     }
 
-  useEffect(() => {
-    setFootworkExercise(getRandomExercise("footwork"));
-    setRacketExercise(getRandomExercise("racket"));
-    setStrengthExercise(getRandomExercise("strength"));
-  }, [exercises]);
+  // useEffect(() => {
+  //   setFootworkExercise(getRandomExercise("footwork"));
+  //   setRacketExercise(getRandomExercise("racket"));
+  //   setStrengthExercise(getRandomExercise("strength"));
+  // }, [exercises]);
 
   return (
     <div className="ExerciseBox">
@@ -61,11 +65,11 @@ export default function ExerciseDisplay(props) {
               sx={{ p: 5 }}
               onClick={() => handlePoints(currentUser.name)}
             >
-              Footwork: {"Full Front Court"}
+              Footwork: {currentExercise.footwork}
             </Button>
             <Button onClick={() => handlePoints(currentUser.name)}>
               <Box component="span" sx={{ p: 5 }}>
-                Racket: {"Backhand Net"}
+                Racket: {currentExercise.racket}
               </Box>
             </Button>
             <Button
@@ -73,7 +77,7 @@ export default function ExerciseDisplay(props) {
               onClick={() => handlePoints(currentUser.name)}
             >
               <Box component="span" sx={{ p: 5 }}>
-                Strength: {"Jump Lunges"}
+                Strength: {currentExercise.strength}
               </Box>
             </Button>
           </ButtonGroup>

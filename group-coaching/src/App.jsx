@@ -11,6 +11,7 @@ import JoMUI from "./components/JoMUI";
 import SignoutButton from "./components/SignOutButton";
 import { ThemeProvider } from "@mui/material/styles";
 import { orangeTheme } from "./themes/orangeTheme";
+import { darkTheme } from "./themes/darkTheme";
 
 
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <>
-     <ThemeProvider theme={orangeTheme}>
+     <ThemeProvider theme={darkTheme}>
         <UserProvider>
           <ExerciseProvider>
 

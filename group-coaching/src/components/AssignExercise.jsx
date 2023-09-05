@@ -7,6 +7,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { blue } from "@mui/material/colors";
+import { useExerciseContext } from "../context/ExerciseContext";
+import { Button } from "@mui/material";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -14,49 +17,58 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+      width: 250, 
     },
   },
 };
 
-// function getStyles(exercises, name, theme) {
-//   return {
-//     fontWeight:
-//       exercises.indexOf(name) === -1
-//         ? theme.typography.fontWeightRegular
-//         : theme.typography.fontWeightMedium,
-//   };
-// }
+function getStyles(exercises, name, theme) {
+  return {
+    fontWeight:
+      exercises.indexOf(name) === -1
+        ? theme.typography.fontWeightRegular
+        : theme.typography.fontWeightMedium,
+  };
+}
 
 export default function AssignExercise(props) {
   const [footworkExercise, setFootworkExercise] = useState("");
   const [racketExercise, setRacketExercise] = useState("");
   const [strengthExercise, setStrengthExercise] = useState("");
-  const [difficulty, setDifficulty] = useState("easy");
-  const [program, setProgram] = useState("");
+  
+  const {handleUpdateExercise} = useExerciseContext();
+
+  const handleAssignExercise = () => {
+    handleUpdateExercise({
+      footwork: footworkExercise,
+      racket: racketExercise,
+      strength: strengthExercise,
+    });
+  }
 
   const footworkSelect = exercises.filter(
     (exercise) => exercise.category == "footwork"
   );
-  console.log(footworkSelect);
+  // console.log(footworkSelect);
 
   const racketSelect = exercises.filter(
     (exercise) => exercise.category == "racket"
   );
-  console.log(racketSelect);
+  // console.log(racketSelect);
 
   const strengthSelect = exercises.filter(
     (exercise) => exercise.category == "strength"
   );
-  console.log(strengthSelect);
-
+  // console.log(strengthSelect);
+    // console.log(handleUpdateExercise)
+    
   return (
     <>
       <div className="AssignExercise">
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="assign-exercise-multiple">Footwork</InputLabel>
           <Select
-            id="assign-exercise-multiple"
+            id="assign-exercise-dropdown"
             value={footworkExercise}
             onChange={(e) => {
               props.setFootwork(e.target.value);
@@ -66,7 +78,7 @@ export default function AssignExercise(props) {
             MenuProps={MenuProps}
           >
             {footworkSelect.map((f) => (
-              <MenuItem color="black" key={f.id} value={f.name}></MenuItem>
+              <MenuItem color="black" key={f.id} value={f.name} style={{ color: "black" }}></MenuItem>
             ))}
           </Select>
         </FormControl>
@@ -74,7 +86,7 @@ export default function AssignExercise(props) {
         <FormControl sx={{ m: 1, width: 300 }}>
           <InputLabel id="assign-exercise-multiple">Racket</InputLabel>
           <Select
-            id="assign-exercise-multiple"
+            id="assign-exercise-dropdown"
             value={racketExercise}
             onChange={(e) => {
               props.setRacket(e.target.value);
@@ -110,6 +122,8 @@ export default function AssignExercise(props) {
           </Select>
         </FormControl>
 
+       <Button sx={{ m: 2, width: 300 }} onClick={handleAssignExercise}>Assign Exercise</Button>
+       </div>
         {/* <label>
           {" "}
           Choose Racket Exercise:
@@ -144,7 +158,7 @@ export default function AssignExercise(props) {
             ))}
           </select>
         </label> */}
-      </div>
+     
     </>
   );
 }

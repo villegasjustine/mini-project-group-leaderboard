@@ -16,8 +16,7 @@ import { useState } from "react";
 import { users } from "../data/users";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
-import Exercises from "./Exercises";
-import { colors } from "@mui/material";
+
 
 function Copyright(props) {
   return (

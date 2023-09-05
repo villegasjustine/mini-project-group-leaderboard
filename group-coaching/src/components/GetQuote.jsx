@@ -27,12 +27,12 @@ export default function GetQuote() {
   }, []);
   return (
     <>
-      {/* <BasicCard 
+      <BasicCard 
       main = {quote} 
-      description={author}/> */}
+      description={author}/>
       <br></br>
-      <em>{quote}</em>
-      <p>{author}</p>
+      {/* <em>{quote}</em>
+      <p>{author}</p> */}
     </>
   );
 }

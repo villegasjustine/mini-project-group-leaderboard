@@ -1,5 +1,5 @@
 import User from "./User"
-import { useEffect } from "react"
+
 
 export default function Leaderboard (props) {
     

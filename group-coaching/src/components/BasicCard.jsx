@@ -30,7 +30,6 @@ export default function BasicCard({title, main, description, children}) {
         </Typography>
         <Typography variant="body2">
           {children}
-          <br />
         </Typography>
       </CardContent>
      

@@ -8,8 +8,7 @@ import Quote from "../components/Quote";
 import GetQuote from "../components/GetQuote";
 import ExerciseDisplay from "../components/ExerciseDisplay";
 import ButtonGroup from "../components/VerticalButtons";
-import VerticalButtons from "../components/VerticalButtons";
-import KanbanCardDemo from "../components/KanbanCardDemo";
+
 
 export default function Home() {
   const [user, setUser] = useState(users);
@@ -27,7 +26,7 @@ export default function Home() {
       <Quote></Quote>
      <GetQuote/>
       <ul>
-        <KanbanCardDemo/>
+        
         <Leaderboard users={user} />
 
         <ExerciseDisplay users={user} setUsers={updateUsers} />
