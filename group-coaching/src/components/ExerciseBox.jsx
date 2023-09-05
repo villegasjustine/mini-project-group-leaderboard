@@ -15,9 +15,9 @@ const getRandomExercise = (category) => {
 
 
 export default function Exercises(props) {
-  const [footworkExercise, setFootworkExercise] = useState("Wait to be assigned");
-  const [racketExercise, setRacketExercise] = useState("Wait to be assigned");
-  const [strengthExercise, setStrengthExercise] = useState("Wait to be assigned");
+  // const [footworkExercise, setFootworkExercise] = useState("Wait to be assigned");
+  // const [racketExercise, setRacketExercise] = useState("Wait to be assigned");
+  // const [strengthExercise, setStrengthExercise] = useState("Wait to be assigned");
   
   
   const {currentUser} = useUserContext(); 
@@ -33,11 +33,11 @@ export default function Exercises(props) {
 
     }
 
-  useEffect(() => {
-    setFootworkExercise(getRandomExercise("footwork"));
-    setRacketExercise(getRandomExercise("racket"));
-    setStrengthExercise(getRandomExercise("strength"));
-  }, [exercises]);
+  // useEffect(() => {
+  //   setFootworkExercise(getRandomExercise("footwork"));
+  //   setRacketExercise(getRandomExercise("racket"));
+  //   setStrengthExercise(getRandomExercise("strength"));
+  // }, [exercises]);
 
   return (
     <div>
@@ -46,17 +46,17 @@ export default function Exercises(props) {
         <Button variant="contained" 
         onClick={() => handlePoints(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-            Footwork: {footworkExercise}
+            Footwork: {props.footwork}
           </Box>
         </Button>
         <Button onClick={() => handlePoints(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-        Racket: {racketExercise}
+        Racket: {props.racket}
           </Box>
         </Button>
         <Button variant = "contained" onClick={() => handlePoints(currentUser.name)}>
           <Box component="span" sx={{ p: 2, border: "1px dashed grey" }}>
-            Strength: {strengthExercise}
+            Strength: {props.strength}
           </Box>
         </Button>
         </div>

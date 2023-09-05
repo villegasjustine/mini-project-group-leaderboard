@@ -9,6 +9,9 @@ import Exercises from "../components/ExerciseBox";
 
 
 export default function ExercisesPage() {
+  const [footwork, setFootwork] = useState("")
+  const [racket, setRacket] = useState("")
+  const [strength, setStrength] = useState("")
  
   const {currentUser} = useUserContext();
 
@@ -18,8 +21,15 @@ export default function ExercisesPage() {
       <br></br>
       Show exercises assigned for user
       
-      <AssignExercise/>
-      <Exercises/>
+      <AssignExercise 
+        footwork={footwork} setFootwork={setFootwork}
+        racket={racket} setRacket={setRacket}
+        strength={strength} setStrength={setStrength}/>
+
+      <Exercises 
+        footwork={footwork}
+        racket={racket}
+        strength={strength}/>
       
     </div>
   );

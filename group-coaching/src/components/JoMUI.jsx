@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { NavLink } from 'react-router-dom';
 
-const pages = [{link: '/home', label: 'Home'}, {link: '/exercises', label: 'Exercises'},{link: '/account', label: 'Account'} 
+const pages = [{link: '/home', label: 'Home'}, {link: '/exercises', label: 'Exercises'}, 
     ];
     const settings = [{link: '/account', label: 'Account'}, {link: '/', label: 'Sign Out'}];
 

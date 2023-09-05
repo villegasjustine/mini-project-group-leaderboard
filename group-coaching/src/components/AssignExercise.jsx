@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { exercises } from "../data/exercises";
 
-export default function AssignExercise() {
+export default function AssignExercise(props) {
   const [footworkExercise, setFootworkExercise] = useState("");
   const [racketExercise, setRacketExercise] = useState("");
   const [strengthExercise, setStrengthExercise] = useState("");
@@ -26,29 +26,37 @@ export default function AssignExercise() {
   return (
     <>
       <div className="AssignExercise">
+
         <label>
           {" "}
           Choose Footwork Exercise:
           <select
             value={footworkExercise}
-            onChange={(e) => setFootworkExercise(e.target.value)}
+            onChange={(e) => {
+              props.setFootwork(e.target.value);
+              setFootworkExercise(e.target.value)
+            }}
           >
             {footworkSelect.map((f) => (
-              <option key={f.id} value={f.id}>
+              <option key={f.id} value={f.name}>
                 {f.name}
               </option>
             ))}
           </select>
         </label>
+
         <label>
           {" "}
           Choose Racket Exercise:
           <select
             value={racketExercise}
-            onChange={(e) => setRacketExercise(e.target.value)}
+            onChange={(e) => {
+              props.setRacket(e.target.value);
+              setRacketExercise(e.target.value)
+            }}
           >
             {racketSelect.map((f) => (
-              <option key={f.id} value={f.id}>
+              <option key={f.id} value={f.name}>
                 {f.name}
               </option>
             ))}
@@ -58,11 +66,14 @@ export default function AssignExercise() {
           {" "}
           Choose Strength Exercise:
           <select
-            value={strengthExercise}
-            onChange={(e) => setStrengthExercise(e.target.value)}
+           value={strengthExercise}
+            onChange={(e) => {
+              props.setStrength(e.target.value);
+              setStrengthExercise(e.target.value)
+            }}
           >
             {strengthSelect.map((f) => (
-              <option key={f.id} value={f.id}>
+              <option key={f.id} value={f.name}>
                 {f.name}
               </option>
             ))}
