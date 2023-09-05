@@ -48,7 +48,7 @@ export default function SignIn() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Find the user with the entered username
+    // make sure user is in users data
     const user = users.find((user) => user.username === username);
 
     if (user) {
@@ -84,7 +84,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Hello! Are you ready to train?
         </Typography>
         <Box component="form" onSubmit={handleLogin} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -118,7 +118,7 @@ export default function SignIn() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            Let's go!
           </Button>
 
           <Link href="/signup" variant="body2">

@@ -12,6 +12,7 @@ import SignoutButton from "./components/SignOutButton";
 import { ThemeProvider } from "@mui/material/styles";
 import { orangeTheme } from "./themes/orangeTheme";
 import { darkTheme } from "./themes/darkTheme";
+import { lightTheme } from "./themes/lightTheme";
 
 
 
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <>
-     <ThemeProvider theme={darkTheme}>
+     <ThemeProvider theme={orangeTheme}>
         <UserProvider>
           <ExerciseProvider>
 
