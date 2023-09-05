@@ -61,10 +61,10 @@ export default function SignIn() {
         // make user go to homepage
         navigate("/home");
       } else {
-        setErrorMessage("Incorrect password");
+        alert("Incorrect password");
       }
     } else {
-      setErrorMessage("User not found");
+      alert("User not found");
     }
   };
 

@@ -1,6 +1,7 @@
 import { Slider } from "@mui/material";
 import { useEffect, useState } from "react";
 
+
 export default function User ({id, name, type, points, avatar}) {
   
   return (
@@ -13,7 +14,8 @@ export default function User ({id, name, type, points, avatar}) {
       value={points} 
       color="secondary"
       aria-label="Points slider"
-      max={100}/>
+      max={100}
+      />
       
       </div>
     )

@@ -9,7 +9,7 @@ export const orangeTheme = createTheme({
   },
   typography: {
     fontFamily: "Segoe UI Emoji",
-    fontSize: 12,
+    fontSize: 15,
     h1: { fontSize: 20 },
   },
   shape: { borderRadius: 0 },

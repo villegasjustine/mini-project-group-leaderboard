@@ -102,7 +102,10 @@ export default function AssignExercise(props) {
             MenuProps={MenuProps}
           >
             {strengthSelect.map((f) => (
-              <MenuItem key={f.id} value={f.name}></MenuItem>
+              <MenuItem 
+              key={f.id} 
+              value={f.name}
+              color="secondary"></MenuItem>
             ))}
           </Select>
         </FormControl>

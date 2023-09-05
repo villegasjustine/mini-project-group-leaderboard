@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Groups2Icon from '@mui/icons-material/Groups2';
 import { NavLink } from 'react-router-dom';
 
 const pages = [{link: '/home', label: 'Home'}, {link: '/exercises', label: 'Exercises'}, 
@@ -44,7 +45,7 @@ function JoMUI() {
         <Toolbar disableGutters>
 
           {/* desktop menu logo and icon */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Groups2Icon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
