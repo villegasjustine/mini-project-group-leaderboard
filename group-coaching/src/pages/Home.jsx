@@ -3,6 +3,8 @@ import Leaderboard from "../components/Leaderboard";
 import { useState } from "react";
 import { useUserContext } from "../context/UserContext";
 import { users } from "../data/users";
+import BasicCard from "../components/BasicCard";
+import Quote from "../components/Quote";
 
 export default function Home() {
   const [user, setUser] = useState(users);
@@ -18,6 +20,7 @@ export default function Home() {
   return (
     <div className="Home">
       Welcome {currentUser.name}
+      {/* <Quote/> */}
       <ul>
         <Leaderboard users={user} />
 
