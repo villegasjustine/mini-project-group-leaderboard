@@ -1,5 +1,4 @@
 import SignIn from "../components/SignIn";
-import { useUserContext } from "../context/UserContext";
 
 export default function WelcomePage() {
   

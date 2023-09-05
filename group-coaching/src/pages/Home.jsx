@@ -26,7 +26,7 @@ export default function Home() {
      <Typography variant="h1" >
       Welcome {currentUser.name}
       </Typography>
-     <GetQuote/>
+     <GetQuote />
       <ul>
         
         <Leaderboard users={user} />

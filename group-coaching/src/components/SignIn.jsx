@@ -53,7 +53,7 @@ export default function SignIn() {
 
     if (user) {
       if (password === "password") {
-        // Successfully logged in
+        // logged in
         setErrorMessage("");
         handleUpdateUser({ name: user.name });
         alert(`Welcome, ${user.name}! You are logged in as a ${user.type}.`);

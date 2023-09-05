@@ -14,7 +14,6 @@ function SignoutButton() {
       <button onClick={handleSignout}>
         Sign Out
       </button>
-
       
     );
   }

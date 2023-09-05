@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-     <ThemeProvider theme={orangeTheme}>
+     <ThemeProvider theme={lightTheme}>
         <UserProvider>
           <ExerciseProvider>
 
