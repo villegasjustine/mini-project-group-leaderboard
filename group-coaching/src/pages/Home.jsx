@@ -5,6 +5,7 @@ import { useUserContext } from "../context/UserContext";
 import { users } from "../data/users";
 import BasicCard from "../components/BasicCard";
 import Quote from "../components/Quote";
+import GetQuote from "../components/GetQuote";
 
 export default function Home() {
   const [user, setUser] = useState(users);
@@ -20,12 +21,12 @@ export default function Home() {
   return (
     <div className="Home">
       Welcome {currentUser.name}
-      {/* <Quote/> */}
+      <Quote></Quote>
+     <GetQuote/>
       <ul>
         <Leaderboard users={user} />
 
         <Exercises users={user} setUsers={updateUsers} />
-        <li>Motivational Quote</li>
         <li>Video</li>
       </ul>
     </div>

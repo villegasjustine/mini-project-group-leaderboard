@@ -3,29 +3,16 @@ import { useData } from "../hooks/useData";
 import BasicCard from "./BasicCard";
 
 export default function Quote() {
-  const [quote, setQuote] = useState("");
+    const apiResponse = useData("/quoteapi");
+    // console.log(apiResponse)
  
-
-    const apiFetch = useData("/quoteapi");
-
-    if (apiFetch && apiFetch.data) {
-        
-        console.log('hello')
-        const randomIndex = Math.floor(Math.random() * apiFetch.data.length);
-        setQuote(apiFetch.data[randomIndex]?.q || "No quotes available");
-      } else {
-        setQuote("No quotes available");
-      }
-   
-  
-    // if (!apiFetch || apiFetch.data) {
-    //   return "Loading...";
-    // }
-
+  if (!apiResponse || !apiResponse.data) {
+    return "";
+  }
+  //write a map function here to fetch multiple data
   return (
     <>
-        <BasicCard main={quote}></BasicCard>
-
+    <BasicCard main={apiResponse[49].q}></BasicCard>
     </>
   );
 }

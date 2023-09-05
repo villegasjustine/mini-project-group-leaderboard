@@ -15,9 +15,9 @@ const getRandomExercise = (category) => {
 
 
 export default function Exercises(props) {
-  const [footworkExercise, setFootworkExercise] = useState("");
-  const [racketExercise, setRacketExercise] = useState("");
-  const [strengthExercise, setStrengthExercise] = useState("");
+  const [footworkExercise, setFootworkExercise] = useState("Wait to be assigned");
+  const [racketExercise, setRacketExercise] = useState("Wait to be assigned");
+  const [strengthExercise, setStrengthExercise] = useState("Wait to be assigned");
   
   
   const {currentUser} = useUserContext(); 
@@ -37,7 +37,7 @@ export default function Exercises(props) {
     setFootworkExercise(getRandomExercise("footwork"));
     setRacketExercise(getRandomExercise("racket"));
     setStrengthExercise(getRandomExercise("strength"));
-  }, [users]);
+  }, [exercises]);
 
   return (
     <div>

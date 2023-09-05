@@ -8,6 +8,7 @@ export default function WelcomePage() {
        
       {/* insert Login Component here */}
       <SignIn/>
+      
       </div>
     );
   }

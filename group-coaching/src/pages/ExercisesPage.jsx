@@ -3,6 +3,8 @@ import ExerciseBox from "../components/ExerciseBox";
 import { useUserContext } from "../context/UserContext";
 import { users } from "../data/users";
 import AssignExercise from "../components/AssignExercise";
+import AssignExerciseTest from "../components/AssignExerciseTest";
+import Exercises from "../components/ExerciseBox";
 
 
 
@@ -15,8 +17,10 @@ export default function ExercisesPage() {
       Exercises for {currentUser.name}
       <br></br>
       Show exercises assigned for user
-      <ExerciseBox />
+      
       <AssignExercise/>
+      <Exercises/>
+      
     </div>
   );
 }

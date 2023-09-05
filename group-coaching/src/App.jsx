@@ -6,6 +6,8 @@ import AppRoutes from "./routes/AppRoutes";
 import NavBar from "./components/NavBar";
 import { UserProvider } from "./context/UserContext";
 import { ExerciseProvider } from "./context/ExerciseContext";
+import NavBarMUI from "./components/NavBarMUI";
+import JoMUI from "./components/JoMUI";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +18,7 @@ function App() {
         <ExerciseProvider>
         Group Coaching
 
+        <JoMUI/>
         <NavBar />
         <AppRoutes />
 

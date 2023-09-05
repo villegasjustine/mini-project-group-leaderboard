@@ -69,6 +69,7 @@ export default function SignIn() {
 
   if (currentUser.name) return (
     <p>Welcome {currentUser.name}</p>
+    
   )
   return (
     <Container component="main" maxWidth="xs">
