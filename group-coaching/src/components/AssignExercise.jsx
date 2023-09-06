@@ -117,7 +117,8 @@ export default function AssignExercise(props) {
               <MenuItem 
               key={f.id} 
               value={f.name}
-              color="secondary"></MenuItem>
+              color="white"
+              ></MenuItem>
             ))}
           </Select>
         </FormControl>

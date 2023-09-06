@@ -10,7 +10,7 @@ export default function User ({id, name, type, points, avatar}) {
        {avatar}
       <p>{name}</p>  
       <Slider 
-      disabled
+      controlled
       value={points} 
       color="secondary"
       aria-label="Points slider"
